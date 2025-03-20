@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../styles.css';
 
 export default function TicketForm() {
   const [title, setTitle] = useState('');
@@ -7,9 +6,9 @@ export default function TicketForm() {
   const [priority, setPriority] = useState('1');
 
   const priorityLabels = {
-    1: 'low',
-    2: 'medium',
-    3: 'high',
+    1: 'Low',
+    2: 'Medium',
+    3: 'High',
   };
 
   const clearForm = () => {
@@ -24,7 +23,7 @@ export default function TicketForm() {
   };
 
   return (
-    <form onSubmite={handleSubmit} className="ticket-form">
+    <form onSubmit={handleSubmit} className="ticket-form">
       <div>
         <label>Title</label>
         <input
@@ -38,9 +37,28 @@ export default function TicketForm() {
         <label>Description</label>
         <textarea
           value={description}
+          className="form-input"
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
       </div>
+      <fieldset className="priority-fieldset">
+        <legend>Priority</legend>
+        {Object.entries(priorityLabels).map(([value, label]) => (
+          <label key={value} className="priority-label">
+            <input
+              type="radio"
+              value={value}
+              checked={priority === value}
+              onChange={(e) => setPriority(e.target.value)}
+              className="priority-input"
+            />
+            {label}
+          </label>
+        ))}
+      </fieldset>
+      <button type="submit" className="button">
+        Submit
+      </button>
     </form>
   );
 }

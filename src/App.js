@@ -1,3 +1,4 @@
+import TicketForm from './components/TicketForm';
 import './App.css';
 import './styles.css';
 
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <div className="container">
         <h1>Ticketing App</h1>
+        <TicketForm />
       </div>
     </div>
   );

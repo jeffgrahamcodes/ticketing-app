@@ -3,6 +3,10 @@ import './App.css';
 import './styles.css';
 
 function App() {
+  const initialState = {
+    tickets: [],
+  };
+
   return (
     <div className="App">
       <div className="container">

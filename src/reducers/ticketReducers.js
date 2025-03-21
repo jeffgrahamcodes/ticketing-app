@@ -5,12 +5,22 @@ export default function ticketReducer(state, action) {
         ...state,
         tickets: [...state.tickets, action.payload],
       };
+    case 'SET_EDITING_TICKET':
+      return {
+        ...state,
+        editingTicket: action.payload,
+      };
     case 'UPDATE_TICKET':
       return {
         ...state,
         tickets: state.tickets.map((ticket) =>
           ticket.id === action.payload.id ? action.payload : ticket
         ),
+      };
+    case 'CLEAR_EDITING_TICKET':
+      return {
+        ...state,
+        editingTicket: null,
       };
     case 'DELETE_TICKET':
       return {

@@ -9,6 +9,7 @@ import './styles.css';
 function App() {
   const initialState = {
     tickets: [],
+    editingTicket: null,
   };
 
   const [state, dispatch] = useReducer(ticketReducer, initialState);
@@ -17,7 +18,10 @@ function App() {
     <div className="App">
       <div className="container">
         <h1>Ticketing App</h1>
-        <TicketForm dispatch={dispatch} />
+        <TicketForm
+          dispatch={dispatch}
+          editingTicket={state.editingTicket}
+        />
         {state.tickets.length > 0 && (
           <div className="results">
             <h2>All Tickets</h2>

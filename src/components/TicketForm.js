@@ -27,12 +27,15 @@ export default function TicketForm({ state, dispatch }) {
       priority,
     };
 
-    dispatch({
-      type: 'ADD_TICKET',
-      payload: ticketInfo,
-    });
-
-    clearForm();
+    if (title && description) {
+      dispatch({
+        type: 'ADD_TICKET',
+        payload: ticketInfo,
+      });
+      clearForm();
+    } else {
+      alert('Please enter a title AND description of your issue.');
+    }
   };
 
   return (

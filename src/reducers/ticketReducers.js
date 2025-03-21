@@ -43,7 +43,11 @@ export default function ticketReducer(state, action) {
           ),
         };
       }
-
+    case 'SET_SORT':
+      return {
+        ...state,
+        sortPreference: action.payload,
+      };
     default:
       return state;
   }

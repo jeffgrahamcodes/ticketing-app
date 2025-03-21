@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import TicketItem from './TicketItem';
 
 export default function TicketForm({ state, dispatch }) {
   const [title, setTitle] = useState('');
